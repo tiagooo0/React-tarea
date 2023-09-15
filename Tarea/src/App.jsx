@@ -1,4 +1,5 @@
 import MyCard from "./componentes/MyCards";
+import Navbar from "./componentes/Navbar"; 
 import "./App.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div>
+          <Navbar />
       <h1>Bienvenido a AutitosChocadores.net</h1>
       <MyCard autos={autos} />
     </div>

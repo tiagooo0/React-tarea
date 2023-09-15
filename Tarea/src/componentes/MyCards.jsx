@@ -1,41 +1,42 @@
-import { useState } from "react";
+import  { useState } from "react";
 
 function MyCard({ autos }) {
-  const cardItems = autos.map((auto) => {
-    const [count, setCount] = useState(0); // Estado local para cada tarjeta
-    const [autosData, setAutosData] = useState(autos);
-    function handleClick() {
-      setCount(count + 1);
-    }
-    function handleElim(id) {
-      // Filtramos los autos para eliminar el que tiene el ID igual al que pasamos
-      const updatedAutos = autosData.filter((auto) => auto.id !== id);
-      setAutosData(updatedAutos);
+  const [autosData, setAutosData] = useState(autos);
 
-      console.log('Entro ' + id)
-     
-      console.log(updatedAutos)
-    }
+  function handleLike(id) {
+    const updatedAutos = autosData.map((auto) => {
+      if (auto.id === id) {
+        return { ...auto, likes: (auto.likes || 0) + 1 };
+      }
+      return auto;
+    });
+    setAutosData(updatedAutos);
+  }
 
-    return (
-      <div key={auto.id} className="card">
-        <div className="card-content">
-          <img src={auto.imagen} alt={auto.marca} />
-          <h2>{auto.marca}</h2>
-          <p>Año: {auto.año}</p>
+  function handleDelete(id) {
+    const updatedAutos = autosData.filter((auto) => auto.id !== id);
+    setAutosData(updatedAutos);
+  }
+
+  return (
+    <div className="card-container">
+      {autosData.map((auto) => (
+        <div key={auto.id} className="card">
+          <div className="card-content">
+            <img src={auto.imagen} alt={auto.marca} />
+            <h2>{auto.marca}</h2>
+            <p>Año: {auto.año}</p>
+          </div>
+          <button onClick={() => handleLike(auto.id)}>
+            Le diste like {auto.likes || 0} veces
+          </button>
+          <button className="btnElim" onClick={() => handleDelete(auto.id)}>
+            Eliminar
+          </button>
         </div>
-        <button onClick={handleClick}>
-          Le diste like {count} veces
-        </button>
-        <button  className="btnElim" onClick={() => handleElim(auto.id)}>
-          Eliminar
-        </button>
-
-      </div>
-    );
-  });
-
-  return <div className="card-container">{cardItems}</div>;
+      ))}
+    </div>
+  );
 }
 
 export default MyCard;
