@@ -68,3 +68,6 @@
   height: auto; /* Mantiene la relación de aspecto de la imagen */
   margin-bottom: 10px; /* Espaciado inferior para la imagen */
 }
+.btnElim{
+  margin-top: 10px;
+}
