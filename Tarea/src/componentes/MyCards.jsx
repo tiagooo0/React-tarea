@@ -1,36 +1,36 @@
 import  { useState } from "react";
 
-function MyCard({ autos }) {
-  const [autosData, setAutosData] = useState(autos);
+function MyCard({ jugadores }) {
+  const [jugadoresData, setjugadoresData] = useState(jugadores);
 
   function handleLike(id) {
-    const updatedAutos = autosData.map((auto) => {
-      if (auto.id === id) {
-        return { ...auto, likes: (auto.likes || 0) + 1 };
+    const updatedAutos = jugadoresData.map((jugadores) => {
+      if (jugadores.id === id) {
+        return { ...jugadores, likes: (jugadores.likes || 0) + 1 };
       }
-      return auto;
+      return jugadores;
     });
-    setAutosData(updatedAutos);
+    setjugadoresData(updatedAutos);
   }
 
   function handleDelete(id) {
-    const updatedAutos = autosData.filter((auto) => auto.id !== id);
-    setAutosData(updatedAutos);
+    const updatedAutos = jugadoresData.filter((jugadores) => jugadores.id !== id);
+    setjugadoresData(updatedAutos);
   }
 
   return (
     <div className="card-container">
-      {autosData.map((auto) => (
-        <div key={auto.id} className="card">
+      {jugadoresData.map((jugadores) => (
+        <div key={jugadores.id} className="card">
           <div className="card-content">
-            <img src={auto.imagen} alt={auto.marca} />
-            <h2>{auto.marca}</h2>
-            <p>Año: {auto.año}</p>
+            <img src={jugadores.imagen} alt={jugadores.edad} />
+            <h2>{jugadores.nombre}</h2>
+            <p>Año: {jugadores.edad}</p>
           </div>
-          <button onClick={() => handleLike(auto.id)}>
-            Le diste like {auto.likes || 0} veces
+          <button onClick={() => handleLike(jugadores.id)}>
+            Le diste like {jugadores.likes || 0} veces
           </button>
-          <button className="btnElim" onClick={() => handleDelete(auto.id)}>
+          <button className="btnElim" onClick={() => handleDelete(jugadores.id)}>
             Eliminar
           </button>
         </div>
