@@ -1,3 +1,7 @@
+
+*{
+ background-color: aqua; 
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -37,6 +41,7 @@
   color: #888;
 }
 .card-container {
+  
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -45,11 +50,12 @@
 }
 
 .card {
+
   border: 1px solid #ccc;
   padding: 10px;
   width: 200px;
   text-align: center;
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -58,16 +64,21 @@
   font-size: 20px;
   margin-bottom: 5px;
 }
-
+.btnLike{
+  color: white;
+}
 .card p {
   font-size: 16px;
 }
 
 .card img {
+
   max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
   height: auto; /* Mantiene la relación de aspecto de la imagen */
   margin-bottom: 10px; /* Espaciado inferior para la imagen */
 }
 .btnElim{
+  color: white;
   margin-top: 10px;
 }
+

@@ -1,5 +1,6 @@
 
 function Navbar() {
+  //usar componentes
   return (
     <nav className="navbar">
       <ul className="nav-list">
