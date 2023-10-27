@@ -1,7 +1,6 @@
 import { createContext, useState } from "react";
 
 export const Contexto = createContext()
-
 export default function MiProvider({ children }) {
     const [jugadores, setJugadores] = useState([
         {

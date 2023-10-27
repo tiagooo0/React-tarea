@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import MiProvider  from "../context/MiProvider";
-function MyCard({ jugadores }) {
-  const [jugadoresData, setJugadoresData] = useState(jugadores);
+import React, { useState, useContext } from "react";
+import { Contexto } from "../context/MiProvider";
+function MyCard() {
+  const {jugadoresData, setJugadoresData} = useContext(Contexto);
 
   function handleLike(id) {
     const updatedJugadores = jugadoresData.map((jugador) => {
