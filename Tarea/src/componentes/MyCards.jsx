@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Contexto } from "../context/MiProvider";
+import { Contexto }  from "../context/MiProvider";
 function MyCard() {
   const {jugadoresData, setJugadoresData} = useContext(Contexto);
 

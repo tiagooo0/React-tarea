@@ -1,6 +1,6 @@
 import MyCard from "./componentes/MyCards";
 import Navbar from "./componentes/Navbar"; 
-import MiProvider  from "";
+import MiProvider  from "./context/MiProvider";
 
 import "./App.css";
 // cambiar a useState 
