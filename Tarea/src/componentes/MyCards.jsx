@@ -1,26 +1,26 @@
 import React, { useState, useContext } from "react";
 import { Contexto }  from "../context/MiProvider";
 function MyCard() {
-  const {jugadoresData, setJugadoresData} = useContext(Contexto);
+  const {jugadores, setJugadores} = useContext(Contexto);
 
   function handleLike(id) {
-    const updatedJugadores = jugadoresData.map((jugador) => {
+    const updatedJugadores = jugadores.map((jugador) => {
       if (jugador.id === id) {
         return { ...jugador, likes: (jugador.likes || 0) + 1 };
       }
       return jugador;
     });
-    setJugadoresData(updatedJugadores);
+    setJugadores(updatedJugadores);
   }
 
   function handleDelete(id) {
-    const updatedJugadores = jugadoresData.filter((jugador) => jugador.id !== id);
-    setJugadoresData(updatedJugadores);
+    const updatedJugadores = jugadores.filter((jugador) => jugador.id !== id);
+    setJugadores(updatedJugadores);
   }
 
   return (
     <div className="card-container">
-      {jugadoresData.map((jugador) => (
+      {jugadores.map((jugador) => (
         <div key={jugador.id} className="card">
           <div className="card-content">
             <img className="imgCard" src={jugador.imagen} alt={jugador.edad} />
