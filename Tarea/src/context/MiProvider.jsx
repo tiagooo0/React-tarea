@@ -103,8 +103,10 @@ export default function MiProvider({ children }) {
             dorsal: 10 ,
         },
     ])
+    const [busqueda, setBusqueda] = useState("");
+
     return (<>
-        <Contexto.Provider value={{jugadores, setJugadores}}>
+        <Contexto.Provider value={{ jugadores, setJugadores, busqueda, setBusqueda }}>
             {children}
         </Contexto.Provider>
         </>)
